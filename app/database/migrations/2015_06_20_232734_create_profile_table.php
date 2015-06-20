@@ -12,7 +12,20 @@ class CreateProfileTable extends Migration {
 	 */
 	public function up()
 	{
-		//
+		Schema::create('profiles', function($table) {
+			$table->increments('uid');
+			$table->string('first_name');
+			$table->string('last_name');
+			$table->date('dob');
+			$table->string('address');
+			$table->string('address2');
+			$table->string('city');
+			$table->string('state');
+			$table->string('zip');
+			$table->string('phone');
+			$table->string('carrier');
+			$table->timestamps();
+		});
 	}
 
 	/**
@@ -22,7 +35,7 @@ class CreateProfileTable extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::drop('profiles');
 	}
 
 }
