@@ -12,7 +12,12 @@ class CreateCd4Table extends Migration {
 	 */
 	public function up()
 	{
-		//
+		Schema::create('cd4', function($table){
+		    $table->increments('id');
+			$table->integer('uid');
+			$table->dateTime('date');
+			$table->integer('level');
+		});
 	}
 
 	/**
@@ -22,7 +27,7 @@ class CreateCd4Table extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::dropIfExists('cd4');
 	}
 
 }
