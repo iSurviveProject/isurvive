@@ -15,3 +15,10 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+Route::model('user', 'User');
+Route::model('setting', 'Setting');
+Route::get('profile/{user}', function(User $user){
+
+});
+Route::resource('medication', 'MedicationController');
