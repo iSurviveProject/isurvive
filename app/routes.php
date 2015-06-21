@@ -19,7 +19,7 @@ Route::get('/', array('uses' => 'BaseController@dashboard'));
 
 //Route::model('user', 'User');
 Route::model('setting', 'Setting');
-Route::get('user/{uid}/edit', array('as' => 'profile'));
+//Route::get('user/{uid}/edit', array('as' => 'profile'));
 Route::resource('medication', 'MedicationController');
 Route::resource('cd4', 'Cd4Controller');
 Route::resource('user', 'UserController');
