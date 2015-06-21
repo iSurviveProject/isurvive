@@ -11,6 +11,7 @@ class Cd4Controller extends BaseController {
 	}
 
 	public function store(){
+		var_dump(Input::all()); exit;
 		$rules = array(
 			'level' => 'required',
 			'date' => 'required'
