@@ -22,6 +22,8 @@ class BaseController extends Controller {
             array_push($grahData, [date("Y/m", strtotime($element->date)), $element->level]);
         }
 
+        var_dump($grahData);
+
 		return View::make('dashboard')->with('grahData', $grahData);
 	}
 	
