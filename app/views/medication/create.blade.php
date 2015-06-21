@@ -40,7 +40,7 @@
     </div>
 
     <div class="form-group">
-        {{ Form::label('frequency_per', 'times every ', , array('for' => 'frequency_per', 'class' => 'col-sm-2 control-label')) }}
+        {{ Form::label('frequency_per', 'times every ', array('for' => 'frequency_per', 'class' => 'col-sm-2 control-label')) }}
         <div class="col-sm-10">
             {{ Form::text('frequency_per', Input::old('frequency'), array('class' => 'form-control')) }}
         </div>
