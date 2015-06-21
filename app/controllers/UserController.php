@@ -95,8 +95,8 @@ class UserController extends BaseController {
 //		}
 
 		//Security logging
-		$user->updated_by_user_id = Auth::user()->id;
-		$user->updated_by_ip = Request::ip();
+//		$user->updated_by_user_id = Auth::user()->id;
+//		$user->updated_by_ip = Request::ip();
 
 		$user->save();
 
@@ -105,9 +105,9 @@ class UserController extends BaseController {
 
 	public function create()
 	{
-		if (!Auth::user()->permission->solder_full && !Auth::user()->permission->solder_users)
-			return Redirect::to('dashboard')
-				->with('permission','You do not have permission to access this area.');
+//		if (!Auth::user()->permission->solder_full && !Auth::user()->permission->solder_users)
+//			return Redirect::to('dashboard')
+//				->with('permission','You do not have permission to access this area.');
 
 		return View::make('user.create');
 	}
