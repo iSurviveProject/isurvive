@@ -25,10 +25,6 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="text" class="form-control" name="email" id="email" value="{{ $user->email }}">
-                </div>
-                <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" class="form-control" name="username" id="username" value="{{ $user->username }}">
                 </div>
