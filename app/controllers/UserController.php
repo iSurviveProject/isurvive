@@ -157,8 +157,8 @@ class UserController extends BaseController {
 //
 //		$perm->save();
 
-		return Redirect::to('user');
-		//return Redirect::to('user/edit/'.$user->id)->with('success','User created!');
+		//return Redirect::to('user');
+		return Redirect::to('user/edit/'.$user->id)->with('success','User created!');
 	}
 
 	public function destroy($user_id = null)
@@ -215,7 +215,7 @@ class UserController extends BaseController {
 				// redirect them to the secure section or whatever
 				// return Redirect::to('secure');
 				// for now we'll just echo success (even though echoing in a controller is bad)
-				return Redirect::to('user');
+				return Redirect::to('/');
 
 			} else {
 

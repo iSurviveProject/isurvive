@@ -16,15 +16,13 @@ class BaseController extends Controller {
 	public function dashboard() {
         $cd4 = Cd4::orderBy('date', 'desc')->get();
 
-        $grahData = array(['Month', 'Levels']);
+        $graphData = array(array('Month', 'Levels'));
 
         foreach($cd4 as $element){
-            array_push($grahData, [date("Y/m", strtotime($element->date)), $element->level]);
+            array_push($graphData, array(date("Y/m", strtotime($element->date)), $element->level));
         }
 
-        var_dump(array_flatten($grahData));
-
-		return View::make('dashboard')->with('grahData', $grahData);
+		return View::make('dashboard')->with('graphData', $graphData);
 	}
 	
 	/**

@@ -9,12 +9,10 @@
         google.setOnLoadCallback(drawVisualization);
 
         function drawVisualization() {
-          // Some raw data (not necessarily accurate)
-          var data = google.visualization.arrayToDataTable($graphData);
-
+          var data = google.visualization.arrayToDataTable({{ json_encode($graphData) }})
           var options = {
             hAxis: {title: 'Year'},
-            vAxis: {title: 'Levels', minValue: 0, maxVlaue: 10000}
+            vAxis: {title: 'Levels', minValue: 200}
           };
 
           var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
