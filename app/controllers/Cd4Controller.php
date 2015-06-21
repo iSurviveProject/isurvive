@@ -18,7 +18,7 @@ class Cd4Controller extends BaseController {
 		$cd4->date = $date;
 		$cd4->save();
 
-        Redirect::to('cd4');
+        return Redirect::to('cd4');
 	}
 
 }
