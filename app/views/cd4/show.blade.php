@@ -35,8 +35,10 @@
             </thead>
             <tbody>
                 @foreach($cd4 as $row)
-                    <td>{{ date('m/d/Y', strtotime($row->date)) }}</td>
-                    <td>{{ $row->level }}</td>
+                    <tr>
+                        <td>{{ date('m/d/Y', strtotime($row->date)) }}</td>
+                        <td>{{ $row->level }}</td>
+                    </tr>
                 @endforeach
             </tbody>
         </table>
