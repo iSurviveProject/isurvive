@@ -92,6 +92,7 @@
     <script src="/bootstrap/js/bootstrap.min.js"></script>
     <script src="/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 
+    @yield('footer-scripts')
     <script src="/js/script.js" type="text/javascript"></script>
 
 </body>

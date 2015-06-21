@@ -13,7 +13,7 @@
 
     <div class="form-group">
         {{ Form::label('name', 'Name') }}
-        {{ Form::text('name', Input::old('name'), array('class' => 'form-control')) }}
+        {{ Form::text('name', Input::old('name'), array('class' => 'form-control med-name', 'data-provide' => 'typeahead')) }}
     </div>
 
     <div class="form-group">
@@ -48,4 +48,33 @@
     {{ Form::close() }}
 
 </div>
+@endsection
+@section('footer-scripts')
+    <script src="/js/bootstrap3-typeahead.js"></script>
+    <script type="text/javascript">
+        var $input = $('.med-name');
+
+        var medList = new Bloodhound({
+            datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
+            queryTokenizer: Bloodhound.tokenizers.whitespace,
+            remote: {
+                url: '/drug-autocomplete.php?name=%QUERY',
+                wildcard: '%QUERY'
+            }
+        });
+
+        $input.typeahead(null, {
+            name: 'name',
+            display: 'value',
+            source: medList
+        });
+        /*$input.typeahead( {
+                hint: true,
+                highlight: true,
+                minLength: 3
+            }, {
+                name: 'meds',
+                remote: '/countries.json',
+            } );*/
+    </script>
 @endsection
