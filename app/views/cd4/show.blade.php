@@ -10,7 +10,7 @@
 		<div class="form-group">
             {{ Form::label('level', 'Level') }}
             <div class="controls">
-                {{ Form::text('level', array('placeholder' => '10000')) }}
+                {{ Form::text('level') }}
             </div>
         </div>
         {{ Form::submit('Save', array('class' => 'btn btn-primary')) }}
