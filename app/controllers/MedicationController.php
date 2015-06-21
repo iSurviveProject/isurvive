@@ -15,7 +15,7 @@ class MedicationController extends BaseController {
 	public function show($id){
 		$user_meds = Medication::find($id);
 
-		return View::make('medication.sho', array('medications' => $user_meds));
+		return View::make('medication.show', array('medications' => $user_meds));
 	}
 
 	public function create(){
