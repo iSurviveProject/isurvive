@@ -27,7 +27,7 @@
                 </div>
                 <div class="med-details-field">
                     <label>Frequency</label>
-                    {{ $meds->frequency }} times every {{ $meds->frequency_per }}
+                    {{ $meds->frequency }}
                 </div>
                 <div class="med-details-field">
                     <label>Count</label>
