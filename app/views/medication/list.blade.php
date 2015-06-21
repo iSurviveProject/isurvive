@@ -27,7 +27,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach ($user_meds as $meds)
+                    @foreach ($medications as $meds)
                         <tr>
                             <td>{{ $meds->name }}</td>
                             <td>{{ $meds->dosage }} {{ $meds->dosage_unit }}</td>

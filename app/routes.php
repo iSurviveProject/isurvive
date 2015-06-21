@@ -19,8 +19,8 @@ Route::get('/', array('uses' => 'BaseController@dashboard'));
 
 //Route::model('user', 'User');
 Route::model('setting', 'Setting');
-Route::get('profile/{user}', function(User $user){
-
+Route::get('profile', function(){
+	return user.edit(Auth::id());
 });
 Route::resource('medication', 'MedicationController');
 Route::resource('cd4', 'Cd4Controller');
