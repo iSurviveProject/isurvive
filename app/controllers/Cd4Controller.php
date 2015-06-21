@@ -3,11 +3,11 @@
 class Cd4Controller extends BaseController {
 
 	public function index(){
-		return "Hello World";
+		return View::make('cd4.show');
 	}
 
 	public function show(){
-		return View:make('cd4.show');
+		return View::make('cd4.show');
 	}
 
 	public function create(){
