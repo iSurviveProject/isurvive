@@ -19,7 +19,11 @@
                 {{ Form::input('date', 'date', date('Y-m-d'), array('class' => 'datepicker form-control', 'placeholder' => '10/25/2015', 'max' =>  date('Y-m-d'))) }}
             </div>
         </div>
-        {{ Form::submit('Save', array('class' => 'btn btn-primary')) }}
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                {{ Form::submit('Save', array('class' => 'btn btn-primary')) }}
+            </div>
+        </div>
     	{{ Form::close() }}
     </div>
 </div>
