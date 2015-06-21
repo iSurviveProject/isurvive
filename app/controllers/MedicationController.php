@@ -7,7 +7,7 @@ class MedicationController extends BaseController {
 			Redirect::to('login');
 		}
 		$cur_user = Auth::id();
-		$user_meds = Medication::where('uid', '=', $cur_user);
+		$user_meds = Medication::where('uid', '=', $cur_user)->get();
 		return View::make('medication.list')
 			->with('medications', $user_meds);
 	}
