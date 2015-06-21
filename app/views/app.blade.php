@@ -45,11 +45,13 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
+                    @if(Auth::user())
                     <li>
-                    <li><a href="{{ URL::to('profile') }}">
+                        <a href="{{ URL::to('profile') }}">
                             {{ Auth::user()->username }}
-                        </a></li>
+                        </a>
                     </li>
+                    @endif
                     <li>
                         <a href="/medication">Medications</a>
                     </li>
