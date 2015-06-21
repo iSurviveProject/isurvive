@@ -3,7 +3,6 @@
 <!-- Jumbotron Header -->
 <header class="jumbotron hero-spacer">
     <h1>CD4 Levels <a href="/cd4" class="btn btn-primary btn-large">More Details</a></h1>
-    <div id="cd4-level-graph"></div>
     <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1.1','packages':['corechart']}]}"></script>
     <div id="chart_div"></div>
     <script type="text/javascript">
