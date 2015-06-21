@@ -20,7 +20,7 @@
 				{{ Session::get('success') }}
 			</div>
 		@endif
-		{{ Form::open() }}
+		{{ Form::open(array('route' => array('user.update', $user->uid), 'method' => 'put')) }}
 		{{ Form::hidden("edit-user", 1) }}
 		<div class="row">
 			<div class="col-md-6">
@@ -28,7 +28,6 @@
 					<label for="username">Username</label>
 					<input type="text" class="form-control" name="username" id="username" value="{{ $user->username }}">
 				</div>
-				{{ var_dump($user) }}
 				<hr>
 				<p>If you would like to change this accounts password you may include new passwords below. This is not required to edit an account</p>
 				<div class="form-group">
