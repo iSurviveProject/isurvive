@@ -157,7 +157,8 @@ class UserController extends BaseController {
 //
 //		$perm->save();
 
-		return Redirect::to('user/edit/'.$user->id)->with('success','User created!');
+		return Redirect::to('user');
+		//return Redirect::to('user/edit/'.$user->id)->with('success','User created!');
 	}
 
 //	public function getDelete($user_id = null)
