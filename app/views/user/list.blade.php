@@ -1,7 +1,4 @@
 @extends('app')
-@section('title')
-	<title>User Management - iSurvive</title>
-@stop
 @section('content')
 <div class="page-header">
 <h1>User Management</h1>

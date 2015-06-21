@@ -2,12 +2,7 @@
 
 class UserController extends BaseController {
 
-	public function getIndex()
-	{
-		return Redirect::to('user/list');
-	}
-
-	public function getList()
+	public function index()
 	{
 		$users = User::all();
 		return View::make('user.list')->with('users', $users);
