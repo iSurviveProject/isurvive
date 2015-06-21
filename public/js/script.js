@@ -1,5 +1,6 @@
-jQuery(window).ready( function(){
-	if( jQuery('#cd4-level-graph').length > 0 ){
+(function($, undefined){
+$(window).ready( function(){
+	if( $('#cd4-level-graph').length > 0 ){
 		Morris.Line({
 		  element: 'cd4-level-graph',
 		  data: [
@@ -17,8 +18,10 @@ jQuery(window).ready( function(){
 		});
 	}
 
-	jQuery('.datepicker').datepicker({
-		format: "01/20/2015",
-		todayBtn: true
+	$('.datepicker').datepicker({
+		format: "mm/dd/yyyy",
+		todayBtn: true,
+		todayHighlight: true
 	});
 });
+}(window.jQuery))

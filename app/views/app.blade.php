@@ -75,11 +75,12 @@
     <!-- Morris JS -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js"></script>
     <script src="/morrisjs/morris.min.js"></script>
-    <script src="/js/script.js" type="text/javascript"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="/bootstrap/js/bootstrap.min.js"></script>
     <script src="/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    
+    <script src="/js/script.js" type="text/javascript"></script>
 
 </body>
 
