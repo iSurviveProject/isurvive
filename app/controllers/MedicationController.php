@@ -54,7 +54,7 @@ class MedicationController extends BaseController {
 
 		// process the login
 		if ($validator->fails()) {
-			return Redirect::to('medications/' . $id . '/edit')
+			return Redirect::to('medication/' . $id . '/edit')
 				->withErrors($validator)
 				->withInput(Input::except('password'));
 		} else {
