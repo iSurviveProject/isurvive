@@ -32,12 +32,12 @@ class MedicationController extends BaseController {
 
         // process the login
         if ($validator->fails()) {
-            return Redirect::to('medication/' . $id . '/edit')
+            return Redirect::to('medication/show')
                 ->withErrors($validator)
                 ->withInput(Input::except('password'));
         } else {
             // store
-            $med = Medication::find($id);
+            $med = new Medication();
             $med->name          = Input::get('name');
             $med->dosage_volume = Input::get('dosage');
             $med->dosage_unit   = Input::get('dosage_unit');
@@ -45,7 +45,9 @@ class MedicationController extends BaseController {
             $med->frequency_per = Input::get('frequency_per');
             $med->count         = Input::get('count');
             $med->ndc           = Input::get('ndc');
+	        $med->uid           = Auth::id();
             $med->save();
+	        var_dump($med); die();
 
             // redirect
             Session::flash('message', 'Successfully updated Medication!');

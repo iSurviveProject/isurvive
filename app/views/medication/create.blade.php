@@ -16,7 +16,7 @@
             <div class="form-group">
                 {{ Form::label('name', 'Name', array('for' => 'name', 'class' => 'col-sm-2 control-label')) }}
                 <div class="col-sm-10">
-                    {{ Form::text('name', Input::old('name'), array('class' => 'form-control typeahead med-list')) }}
+                    {{ Form::text('name', Input::old('name'), array('class' => 'form-control typeahead med-name')) }}
                 </div>
             </div>
 
