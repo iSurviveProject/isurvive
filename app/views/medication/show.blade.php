@@ -19,7 +19,7 @@
                     </div>
                 <div class="med-details-field">
                     <label>Dosage</label>
-                    {{ $meds->dosage }} {{ $meds->dosage_unit }}
+                    {{ $meds->dosage_volume }} {{ $meds->dosage_unit }}
                 </div>
                 <div class="med-details-field">
                     <label>Frequency</label>
