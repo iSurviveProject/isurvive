@@ -15,10 +15,7 @@ class DatabaseSeeder extends Seeder {
             array('username' => 'watson@gmail.com', 'password' => Hash::make('demo')),
             array('username' => 'kellyl@gmail.com', 'password' => Hash::make('demo'))
         ));
-
-        profile::create(array(
-
-        ));
+        
 
         Cd4::create(array(
             array( 'uid' => '1', 'date' => date('Y-m-d H:i:s', strtotime( '3/14/2014' )), 'level' => '400'),
