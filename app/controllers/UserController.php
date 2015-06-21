@@ -36,7 +36,7 @@ class UserController extends BaseController {
 //				->with('permission','You do not have permission to access this area.');
 
 		$user = User::find($user_id);
-		$profile = Profile::where('uid', $user_id);
+		//$profile = Profile::where('uid', $user_id);
 
 		if (empty($user))
 			return Redirect::to('user')
@@ -59,8 +59,8 @@ class UserController extends BaseController {
 		{
 			$user->password = Hash::make(Input::get('password1'));
 		}
-		$profile->first_name = Input::get('first_name');
-		$profile->last_name = Input::get('last_name');
+		//$profile->first_name = Input::get('first_name');
+		//$profile->last_name = Input::get('last_name');
 
 		/* Update User Permissions */
 //		if (Auth::user()->permission->solder_full || Auth::user()->permission->solder_users)
@@ -102,9 +102,9 @@ class UserController extends BaseController {
 //		$user->updated_by_ip = Request::ip();
 
 		$user->save();
-		$profile->save();
+		//$profile->save();
 
-		return Redirect::to('user')->with('success','User edited successfully!');
+		return Redirect::to('user/{uid}/edit')->with('success','User edited successfully!');
 	}
 
 	public function create()
