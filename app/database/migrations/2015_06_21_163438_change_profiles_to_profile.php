@@ -12,7 +12,7 @@ class ChangeProfilesToProfile extends Migration {
 	 */
 	public function up()
 	{
-		//
+		Schema::rename('profiles', 'profile');
 	}
 
 	/**
