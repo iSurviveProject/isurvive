@@ -10,7 +10,7 @@
 		</div>
 	User List
 	</div>
-	<div>Authed User: {{ Auth::id()) }}</div>
+	<div>Authed User: {{ Auth::id() }}</div>
 	<div class="panel-body">
 		@if ($errors->all())
 			<div class="alert alert-danger">
