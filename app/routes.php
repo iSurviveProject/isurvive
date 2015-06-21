@@ -27,7 +27,10 @@ Route::resource('user', 'UserController');
 # Laravel Logs
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 // route to show the login form
-	Route::get('login', array('uses' => 'UserController@showLogin'));
+Route::get('login', array('uses' => 'UserController@showLogin'));
 
-	// route to process the login form
-	Route::post('login', array('uses' => 'UserController@doLogin'));
+// route to process the login form
+Route::post('login', array('uses' => 'UserController@doLogin'));
+
+// route to process logout
+Route::get('logout', array('uses' => 'UserController@doLogout'));
