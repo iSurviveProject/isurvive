@@ -102,6 +102,7 @@ class UserController extends BaseController {
 //		$user->updated_by_ip = Request::ip();
 
 		$user->save();
+		$profile->save();
 
 		return Redirect::to('user')->with('success','User edited successfully!');
 	}
