@@ -14,7 +14,8 @@ class UserController extends BaseController {
 			return Redirect::to('user')
 				->withErrors(new MessageBag(array('User ID not provided')));
 
-		$user = User::find($user_id);
+		$user = User::find($user_id)
+			->join('profile', 'user.uid', '=', 'profile.uid');
 
 		if (empty($user))
 			return Redirect::to('user')
