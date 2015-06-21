@@ -34,15 +34,15 @@ class MedicationController extends BaseController {
             'dosage_size' => 'required|numeric',
             'frequency' => 'required|numeric',
             'count'     => 'required|numeric'
-        );*/
-        $validator = Validator::make(Input::all(), $rules);
+        );
+        $validator = Validator::make(Input::all(), $rules);*/
 
         // process the login
-        if ($validator->fails()) {
+        /*if ($validator->fails()) {
             return Redirect::to('medication')
                 ->withErrors($validator)
                 ->withInput(Input::except('password'));
-        } else {
+        } else {*/
             // store
             $med = new Medication();
             $med->name          = Input::get('name');
@@ -58,7 +58,7 @@ class MedicationController extends BaseController {
             // redirect
             Session::flash('message', 'Successfully updated Medication!');
             return Redirect::to('Medication');
-        }
+        //}
     }
 
 	/**
