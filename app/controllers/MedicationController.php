@@ -15,7 +15,7 @@ class MedicationController extends BaseController {
 	public function show($id){
 		$user_meds = Medication::find($id);
 
-		return View::make('medication.list', array('medications' => $user_meds));
+		return View::make('medication.sho', array('medications' => $user_meds));
 	}
 
 	public function create(){
@@ -28,13 +28,13 @@ class MedicationController extends BaseController {
 			Redirect::to('login');
 		}
         // read more on validation at http://laravel.com/docs/validation
-        $rules = array(
+        /*$rules = array(
             'name'      => 'required',
             'dosage'    => 'required|numeric',
             'dosage_size' => 'required|numeric',
             'frequency' => 'required|numeric',
             'count'     => 'required|numeric'
-        );
+        );*/
         $validator = Validator::make(Input::all(), $rules);
 
         // process the login
@@ -46,11 +46,11 @@ class MedicationController extends BaseController {
             // store
             $med = new Medication();
             $med->name          = Input::get('name');
-            $med->dosage_volume = Input::get('dosage');
+            $med->dosage_volume = intval(Input::get('dosage'));
             $med->dosage_unit   = Input::get('dosage_unit');
             $med->frequency     = Input::get('frequency');
             $med->frequency_per = Input::get('frequency_per');
-            $med->count         = Input::get('count');
+            $med->count         = intval(Input::get('count'));
             $med->ndc           = Input::get('ndc');
 	        $med->uid           = Auth::id();
             $med->save();
