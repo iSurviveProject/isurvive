@@ -10,6 +10,7 @@
 		</div>
 	User List
 	</div>
+	<div>Authed User: {{ Auth::id() }}</div>
 	<div class="panel-body">
 		@if ($errors->all())
 			<div class="alert alert-danger">
@@ -30,9 +31,14 @@
 			<tbody>
 			@foreach ($users as $user)
 				<tr>
-					<td>{{ $user->id }}</td>
+					<td>{{ $user->uid }}</td>
 					<td>{{ $user->username }}</td>
-					<td>{{ HTML::link('user/edit/'.$user->id,'Edit', array('class' => 'btn btn-xs btn-warning')) }} {{ HTML::link('user/delete/'.$user->id, 'Delete', array('class' => 'btn btn-xs btn-danger')) }}</td>
+					<td>
+						{{ HTML::link('user/' . $user->uid . '/edit/','Edit', array('class' => 'btn btn-xs btn-warning')) }}
+						{{ Form::open(array('route' => array('user.destroy', $user->uid), 'method' => 'delete')) }}
+							<button type="submit" class="btn btn-xs btn-danger">Delete</button>
+						{{ Form::close() }}
+					</td>
 				</tr>
 			@endforeach
 			</tbody>

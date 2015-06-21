@@ -17,7 +17,6 @@
     <!-- Custom CSS -->
     <link href="/bootstrap/css/heroic-features.css" rel="stylesheet">
     <link href="/bootstrap-datepicker/dist/css/bootstrap-datepicker.css" rel="stylesheet">
-    <link href="/morrisjs/morris.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -64,6 +63,11 @@
 
     <!-- Page Content -->
     <div class="container">
+        @if(Session::has('success'))
+            <div class="alert-box success">
+                <h2>{{ Session::get('success') }}</h2>
+            </div>
+        @endif
         @yield('content')
 
     </div>
@@ -72,14 +76,10 @@
     <!-- jQuery -->
     <script src="/bootstrap/js/jquery.js"></script>
 
-    <!-- Morris JS -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js"></script>
-    <script src="/morrisjs/morris.min.js"></script>
-
     <!-- Bootstrap Core JavaScript -->
     <script src="/bootstrap/js/bootstrap.min.js"></script>
     <script src="/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-    
+
     <script src="/js/script.js" type="text/javascript"></script>
 
 </body>

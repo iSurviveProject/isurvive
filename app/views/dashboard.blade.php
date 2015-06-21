@@ -2,9 +2,32 @@
 @section('content')
 <!-- Jumbotron Header -->
 <header class="jumbotron hero-spacer">
-    <h1>CD4 Levels</h1>
-    <div id="cd4-level-graph"></div>
-    <p><a href="/cd4" class="btn btn-primary btn-large">More Details</a></p>
+    <h1>CD4 Levels <a href="/cd4" class="btn btn-primary btn-large">More Details</a></h1>
+    <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1.1','packages':['corechart']}]}"></script>
+    <div id="chart_div"></div>
+    <script type="text/javascript">
+        google.setOnLoadCallback(drawVisualization);
+
+        function drawVisualization() {
+          // Some raw data (not necessarily accurate)
+          var data = google.visualization.arrayToDataTable([
+            ['Month', 'Levels', 'Optimal'],
+            ['2004/05',  2500,      1600],
+            ['2005/06',  1800,      1600],
+            ['2006/07',  3050,      1600],
+            ['2007/08',  3300,      1600],
+            ['2008/09',  4000,      1600]
+          ]);
+
+          var options = {
+            hAxis: {title: 'Year'},
+            vAxis: {title: 'Levels', minValue: 0, maxVlaue: 10000}
+          };
+
+          var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+          chart.draw(data, options);
+        }
+    </script>
 </header>
 
 <!-- Title -->
