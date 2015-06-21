@@ -119,9 +119,9 @@ class UserController extends BaseController {
 			'password' => 'required|min:3'
 			);
 
-		$validation = Validator::make(Input::all(), $rules);
-		if ($validation->fails())
-			return Redirect::to('user/create')->withErrors($validation->messages());
+//		$validation = Validator::make(Input::all(), $rules);
+//		if ($validation->fails())
+//			return Redirect::to('user/create')->withErrors($validation->messages());
 
 //		$creator = Auth::user()->id;
 //		$creatorIP = Request::ip();
