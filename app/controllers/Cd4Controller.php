@@ -11,24 +11,13 @@ class Cd4Controller extends BaseController {
 	}
 
 	public function store(){
-		var_dump(Input::all()); exit;
-		$rules = array(
-			'level' => 'required',
-			'date' => 'required'
-			);
-
-		$validation = Validator::make(Input::all(), $rules);
-		if ($validation->fails())
-			return Redirect::to('cd4')->withErrors($validation->messages());
-
-
+		
 		$cd4 = new Cd4();
 		$cd4->level = Input::get('level');
-		$cd4->date = Input::get('date');
+
+		$date = date('Y-m-d H:i:s', Input::get('date'));
+		$cd4->date = $date;
 		$cd4->save();
-	}
-	public function update(){
-		return "Hello World";
 	}
 
 }
