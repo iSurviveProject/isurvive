@@ -209,7 +209,7 @@ class UserController extends BaseController {
 			);
 
 			// attempt to do the login
-			if (Auth::attempt($userdata)) {
+			if (Auth::attempt($userdata), true) {
 
 				// validation successful!
 				// redirect them to the secure section or whatever
