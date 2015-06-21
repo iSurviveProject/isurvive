@@ -3,15 +3,19 @@
 class MedicationController extends BaseController {
 
 	public function index(){
-		$meds = Medication::all();
+		if( ! Auth::check() ) {
+			Redirect::to('login');
+		}
+		$cur_user = Auth::id();
+		$user_meds = Medication::where('uid', '=', $cur_user);
 		return View::make('medication.list')
-			->with('medications', $meds);
+			->with('medications', $user_meds);
 	}
 
 	public function show($id){
 		$user_meds = Medication::find($id);
 
-		return View::make('medication', array('medications' => $user_meds));
+		return View::make('medication.list', array('medications' => $user_meds));
 	}
 
 	public function create(){
@@ -20,6 +24,9 @@ class MedicationController extends BaseController {
 	}
 
 	public function store(){
+		if( ! Auth::check() ) {
+			Redirect::to('login');
+		}
         // read more on validation at http://laravel.com/docs/validation
         $rules = array(
             'name'      => 'required',
@@ -32,7 +39,7 @@ class MedicationController extends BaseController {
 
         // process the login
         if ($validator->fails()) {
-            return Redirect::to('medication/show')
+            return Redirect::to('medication')
                 ->withErrors($validator)
                 ->withInput(Input::except('password'));
         } else {
@@ -47,7 +54,6 @@ class MedicationController extends BaseController {
             $med->ndc           = Input::get('ndc');
 	        $med->uid           = Auth::id();
             $med->save();
-	        var_dump($med); die();
 
             // redirect
             Session::flash('message', 'Successfully updated Medication!');
