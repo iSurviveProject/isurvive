@@ -188,7 +188,7 @@ class UserController extends BaseController {
 	{
 		// validate the info, create rules for the inputs
 		$rules = array(
-			'username'    => 'required|username', // make sure the email is an actual email
+			//'username'    => 'required|username', // make sure the email is an actual email
 			'password' => 'required|alphaNum|min:3' // password can only be alphanumeric and has to be greater than 3 characters
 		);
 
