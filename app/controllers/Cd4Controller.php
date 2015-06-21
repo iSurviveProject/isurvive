@@ -18,6 +18,8 @@ class Cd4Controller extends BaseController {
 		$cd4->date = $date;
 		$cd4->save();
 
+        Session::flash('success', 'CD4 level saved!');
+
         return Redirect::to('cd4');
 	}
 
