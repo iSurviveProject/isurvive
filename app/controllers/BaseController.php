@@ -1,6 +1,17 @@
 <?php
 
 class BaseController extends Controller {
+	public function __construct()
+	{
+		$this->beforeFilter('auth', array('except' => 'showLogin'));
+	}
+
+	public function index(){
+		if( ! Auth::check() ) {
+			return Redirect::to('login');
+		}
+
+	}
 
 	/**
 	 * Setup the layout used by the controller.
