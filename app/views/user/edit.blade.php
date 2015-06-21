@@ -5,7 +5,7 @@
 </div>
 <div class="panel panel-default">
     <div class="panel-heading">
-    <strong>Edit User:</strong> {{ $user->username }}
+    <strong>Edit User:</strong> {{ print_r($user) }}
     </div>
     <div class="panel-body">
         @if ($errors->all())
