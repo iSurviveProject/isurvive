@@ -15,7 +15,7 @@
             @endforeach
             </div>
         @endif
-        {{ Form::open() }}
+        {{ Form::open(array('action' => 'UserController@store')) }}
         {{ Form::hidden("edit-user", 1) }}
         <div class="row">
             <div class="col-md-6">
