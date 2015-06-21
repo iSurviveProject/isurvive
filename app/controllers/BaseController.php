@@ -19,8 +19,10 @@ class BaseController extends Controller {
         $grahData = array(['Month', 'Levels']);
 
         foreach($cd4 as $element){
-            array_push($array, [date("Y/m", strtotime($element->date)), $element->level]);
+            array_push($grahData, [date("Y/m", strtotime($element->date)), $element->level]);
         }
+
+        var_dump(array_flatten($grahData));
 
 		return View::make('dashboard')->with('grahData', $grahData);
 	}
