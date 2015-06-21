@@ -5,7 +5,7 @@
 </div>
 <div class="panel panel-default">
     <div class="panel-heading">
-    <strong>Edit User:</strong> {{ print_r($user) }}
+    <strong>Edit User:</strong> {{ $user->username }}
     </div>
     <div class="panel-body">
         @if ($errors->all())
@@ -26,7 +26,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="username">Username</label>
-                    
+                    <input type="text" class="form-control" name="username" id="username" value="{{ $user->username }}">
                 </div>
                 <hr>
                 <p>If you would like to change this accounts password you may include new passwords below. This is not required to edit an account</p>
