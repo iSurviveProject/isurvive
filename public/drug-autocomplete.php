@@ -8,9 +8,9 @@ if ( $db->connect_errno > 0 ) {
 }
 
 $safe_str = $db->escape_string( $_GET['name'] );
-$safe_str = 'SELECT * from FDA_Drug_Data WHERE PROPRIETARYNAME like "' . $safe_str . '%" OR NONPROPRIETARYNAME like "' . $safe_str . '%"';
+$the_query = 'SELECT * from FDA_Drug_Data WHERE PROPRIETARYNAME like "' . $safe_str . '%" OR NONPROPRIETARYNAME like "' . $safe_str . '%"';
 
-if ( ! $result = $db->query( $safe_str ) ) {
+if ( ! $result = $db->query( $the_query ) ) {
     die('There was an error running the query [' . $db->error . ']');
 }
 
