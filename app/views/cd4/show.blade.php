@@ -16,7 +16,7 @@
         <div class="form-group">
             <div class="controls">
                 {{ Form::label('date', 'Entry Date') }}
-                {{ Form::date('date', '', array('class' => 'form-control', 'placeholder' => '10/25/2015')) }}
+                {{ Form::text('date', '', array('class' => 'datepicker form-control', 'placeholder' => '10/25/2015')) }}
             </div>
         </div>
         {{ Form::submit('Save', array('class' => 'btn btn-primary')) }}

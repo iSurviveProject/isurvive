@@ -14,4 +14,6 @@ jQuery(window).ready( function(){
 	  ykeys: ['a'],
 	  labels: ['Series A']
 	});
+
+	jQuery('.datepicker').datepicker({});
 });
