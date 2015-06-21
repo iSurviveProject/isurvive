@@ -18,11 +18,13 @@ class BaseController extends Controller {
 
         $graphData = array(array('Month', 'Levels'));
 
+        $user_meds = Medication::where('uid', '=', Auth::id());
+
         foreach($cd4 as $element){
             array_push($graphData, array(date("Y/m", strtotime($element->date)), $element->level));
         }
 
-		return View::make('dashboard')->with('graphData', $graphData);
+		return View::make('dashboard')->with(array('graphData' => $graphData, 'meds' => $user_meds));
 	}
 	
 	/**
