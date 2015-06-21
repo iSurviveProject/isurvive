@@ -10,7 +10,7 @@
 		</div>
 	User List
 	</div>
-	<div>Authed User: {{ Auth::user() }}</div>
+	<div>Authed User: {{ ( Auth::check() ? 'true' : 'false' ) }}</div>
 	<div class="panel-body">
 		@if ($errors->all())
 			<div class="alert alert-danger">
