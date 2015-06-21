@@ -10,13 +10,13 @@
 		<div class="form-group">
                 {{ Form::label('level', 'New Level', array('for' => 'level', 'class' => 'col-sm-2 control-label')) }}
             <div class="col-sm-10">
-                {{ Form::text('level', '', array('class' => 'form-control', 'placeholder' => '10000')) }}
+                {{ Form::input('number', level', '', array('class' => 'form-control', 'placeholder' => '10000')) }}
             </div>
         </div>
         <div class="form-group">
                 {{ Form::label('date', 'Entry Date', array('for' => 'date', 'class' => 'col-sm-2 control-label')) }}
             <div class="col-sm-10">
-                {{ Form::input('date', 'date', '', array('class' => 'datepicker form-control', 'placeholder' => '10/25/2015')) }}
+                {{ Form::input('date', 'date', '', array('class' => 'datepicker form-control', 'placeholder' => '10/25/2015', 'max' =>  date('Y-m-d'))) }}
             </div>
         </div>
         {{ Form::submit('Save', array('class' => 'btn btn-primary')) }}
