@@ -14,7 +14,7 @@ class BaseController extends Controller {
 	}
 
 	public function dashboard() {
-        $cd4 = Cd4::orderBy('date', 'desc')->where('user.uid', Auth::id())->get();
+        $cd4 = Cd4::orderBy('date', 'desc')->where('uid', Auth::id())->get();
 
         $graphData = array(array('Month', 'Levels'));
 
