@@ -9,36 +9,48 @@
     <!-- if there are creation errors, they will show here -->
     {{ HTML::ul($errors->all()) }}
 
-    {{ Form::open(array('url' => 'medication')) }}
+    {{ Form::open(array('action' => 'MedicationController@store', 'class' => 'form-horizontal')) }}
 
     <div class="form-group">
-        {{ Form::label('name', 'Name') }}
-        {{ Form::text('name', Input::old('name'), array('class' => 'form-control')) }}
+        {{ Form::label('name', 'Name', array('for' => 'name', 'class' => 'col-sm-2 control-label')) }}
+        <div class="col-sm-10">
+            {{ Form::text('name', Input::old('name'), array('class' => 'form-control')) }}
+        </div>
     </div>
 
     <div class="form-group">
-        {{ Form::label('dosage', 'Dosage') }}
-        {{ Form::number('dosage', Input::old('dosage'), array('class' => 'form-control')) }}
+        {{ Form::label('dosage', 'Dosage', array('for' => 'dosage', 'class' => 'col-sm-2 control-label')) }}
+        <div class="col-sm-10">
+            {{ Form::number('dosage', Input::old('dosage'), array('class' => 'form-control')) }}
+        </div>
     </div>
 
     <div class="form-group">
-        {{ Form::label('dosage_size', 'Dosage Size') }}
-        {{ Form::select('dosage_size', array('mL' => 'mL', 'oz' => 'oz'), Input::old('dosage_size'), array('class' => 'form-control')) }}
+        {{ Form::label('dosage_size', 'Dosage Size', array('for' => 'dosage_size', 'class' => 'col-sm-2 control-label')) }}
+        <div class="col-sm-10">
+            {{ Form::select('dosage_size', array('mL' => 'mL', 'oz' => 'oz'), Input::old('dosage_size'), array('class' => 'form-control')) }}
+        </div>
     </div>
 
     <div class="form-group">
-        {{ Form::label('frequency', 'Frequency') }}
-        {{ Form::number('frequency', Input::old('frequency'), array('class' => 'form-control')) }}
+        {{ Form::label('frequency', 'Frequency', array('for' => 'frequency', 'class' => 'col-sm-2 control-label')) }}
+        <div class="col-sm-10">
+            {{ Form::number('frequency', Input::old('frequency'), array('class' => 'form-control')) }}
+        </div>
     </div>
 
     <div class="form-group">
-        {{ Form::label('frequency_per', 'times every ') }}
-        {{ Form::text('frequency_per', Input::old('frequency'), array('class' => 'form-control')) }}
+        {{ Form::label('frequency_per', 'times every ', , array('for' => 'frequency_per', 'class' => 'col-sm-2 control-label')) }}
+        <div class="col-sm-10">
+            {{ Form::text('frequency_per', Input::old('frequency'), array('class' => 'form-control')) }}
+        </div>
     </div>
 
     <div class="form-group">
-        {{ Form::label('count', 'Count') }}
-        {{ Form::number('count', Input::old('count'), array('class' => 'form-control')) }}
+        {{ Form::label('count', 'Count', array('for' => 'count', 'class' => 'col-sm-2 control-label')) }}
+        <div class="col-sm-10">
+            {{ Form::number('count', Input::old('count'), array('class' => 'form-control')) }}
+        </div>
     </div>
 
     {{ Form::hidden('ndc', Input::old('ndc')) }}

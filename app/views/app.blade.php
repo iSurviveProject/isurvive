@@ -73,7 +73,9 @@
     <div class="container">
         @if(Session::has('success'))
             <div class="alert-box success">
-                <p class="bg-success">{{ Session::get('success') }}</p>
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    {{ Session::get('success') }}
+                </div>
             </div>
         @endif
         @yield('content')

@@ -19,7 +19,39 @@ class MedicationController extends BaseController {
 		return View::make('medication.create');
 	}
 
-	public function store(){}
+	public function store(){
+        // read more on validation at http://laravel.com/docs/validation
+        $rules = array(
+            'name'      => 'required',
+            'dosage'    => 'required|numeric',
+            'dosage_size' => 'required|numeric',
+            'frequency' => 'required|numeric',
+            'count'     => 'required|numeric'
+        );
+        $validator = Validator::make(Input::all(), $rules);
+
+        // process the login
+        if ($validator->fails()) {
+            return Redirect::to('medication/' . $id . '/edit')
+                ->withErrors($validator)
+                ->withInput(Input::except('password'));
+        } else {
+            // store
+            $med = Medication::find($id);
+            $med->name          = Input::get('name');
+            $med->dosage_volume = Input::get('dosage');
+            $med->dosage_unit   = Input::get('dosage_unit');
+            $med->frequency     = Input::get('frequency');
+            $med->frequency_per = Input::get('frequency_per');
+            $med->count         = Input::get('count');
+            $med->ndc           = Input::get('ndc');
+            $med->save();
+
+            // redirect
+            Session::flash('message', 'Successfully updated Medication!');
+            return Redirect::to('Medication');
+        }
+    }
 
 	/**
 	 * Show the form for editing the specified resource.
@@ -42,37 +74,7 @@ class MedicationController extends BaseController {
 	 * @return Response
 	 */
 	public function update($id){
-		// read more on validation at http://laravel.com/docs/validation
-		$rules = array(
-			'name'      => 'required',
-			'dosage'    => 'required|numeric',
-			'dosage_size' => 'required|numeric',
-			'frequency' => 'required|numeric',
-			'count'     => 'required|numeric'
-		);
-		$validator = Validator::make(Input::all(), $rules);
 
-		// process the login
-		if ($validator->fails()) {
-			return Redirect::to('medication/' . $id . '/edit')
-				->withErrors($validator)
-				->withInput(Input::except('password'));
-		} else {
-			// store
-			$med = Medication::find($id);
-			$med->name          = Input::get('name');
-			$med->dosage_volume = Input::get('dosage');
-			$med->dosage_unit   = Input::get('dosage_unit');
-			$med->frequency     = Input::get('frequency');
-			$med->frequency_per = Input::get('frequency_per');
-			$med->count         = Input::get('count');
-			$med->ndc           = Input::get('ndc');
-			$med->save();
-
-			// redirect
-			Session::flash('message', 'Successfully updated Medication!');
-			return Redirect::to('Medication');
-		}
 	}
 
 	/**
