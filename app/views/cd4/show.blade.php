@@ -6,16 +6,16 @@
 <div class="panel panel-default">
     <div class="panel-heading">New Entry</div>
     <div class="panel-body">
-    	{{ Form::open(array('action' => 'Cd4Controller@store', 'class' => 'form-inline')) }}
+    	{{ Form::open(array('action' => 'Cd4Controller@store', 'class' => 'form-horizontal')) }}
 		<div class="form-group">
-            <div class="controls">
-                {{ Form::label('level', 'New Level') }}
+                {{ Form::label('level', 'New Level', array('for' => 'level' 'class' => 'col-sm-2 control-label')) }}
+            <div class="col-sm-10">
                 {{ Form::text('level', '', array('class' => 'form-control', 'placeholder' => '10000')) }}
             </div>
         </div>
         <div class="form-group">
-            <div class="controls">
-                {{ Form::label('date', 'Entry Date') }}
+                {{ Form::label('date', 'Entry Date', array('for' => 'date' 'class' => 'col-sm-2 control-label')) }}
+            <div class="col-sm-10">
                 {{ Form::text('date', '', array('class' => 'datepicker form-control', 'placeholder' => '10/25/2015')) }}
             </div>
         </div>
