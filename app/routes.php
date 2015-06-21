@@ -11,10 +11,11 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('dashboard');
-});
+Route::get('/', array('uses' => 'BaseController@dashboard'));
+//Route::get('/', function()
+//{
+//	return View::make('dashboard', array('before' => 'BaseController@auth'));
+//});
 
 //Route::model('user', 'User');
 Route::model('setting', 'Setting');

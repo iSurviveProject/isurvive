@@ -45,6 +45,13 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
+                    @if(Auth::user())
+                    <li>
+                        <a href="{{ URL::to('profile') }}">
+                            {{ Auth::user()->username }}
+                        </a>
+                    </li>
+                    @endif
                     <li>
                         <a href="/medication">Medications</a>
                     </li>
@@ -54,18 +61,7 @@
                     <li>
                         <a href="/settings">Settings</a>
                     </li>
-                </ul>
-
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            {{ Auth::user()->username }}
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{ URL::to('logout') }}">Logout</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="{{ URL::to('logout') }}">Logout</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -77,7 +73,9 @@
     <div class="container">
         @if(Session::has('success'))
             <div class="alert-box success">
-                <p class="bg-success">{{ Session::get('success') }}</p>
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    {{ Session::get('success') }}
+                </div>
             </div>
         @endif
         @yield('content')

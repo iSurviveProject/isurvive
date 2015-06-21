@@ -3,12 +3,12 @@
 class Cd4Controller extends BaseController {
 
 	public function index(){
-        if( Auth::check() ) {
-            $cd4 = Cd4::all();
+        //if( Auth::check() ) {
+            $cd4 = Cd4::orderBy('date', 'desc')->get();
             return View::make('cd4.show')->with('cd4', $cd4);
-        }else{
-            return Redirect::to('login');
-        }
+        //}else{
+            //return Redirect::to('login');
+        //}
 
 	}
 
