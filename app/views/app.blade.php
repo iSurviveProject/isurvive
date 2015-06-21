@@ -16,6 +16,7 @@
 
     <!-- Custom CSS -->
     <link href="/bootstrap/css/heroic-features.css" rel="stylesheet">
+    <link href="/morrisjs/morris.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -45,13 +46,13 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="#">Medications</a>
+                        <a href="/medication">Medications</a>
                     </li>
                     <li>
-                        <a href="#">CD4</a>
+                        <a href="/cd4">CD4</a>
                     </li>
                     <li>
-                        <a href="#">Settings</a>
+                        <a href="/settings">Settings</a>
                     </li>
                 </ul>
             </div>
@@ -69,6 +70,10 @@
 
     <!-- jQuery -->
     <script src="/bootstrap/js/jquery.js"></script>
+
+    <!-- Morris JS -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js"></script>
+    <script src="/morrisjs/morris.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="/bootstrap/js/bootstrap.min.js"></script>
