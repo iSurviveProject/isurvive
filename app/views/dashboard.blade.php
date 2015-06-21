@@ -10,14 +10,7 @@
 
         function drawVisualization() {
           // Some raw data (not necessarily accurate)
-          var data = google.visualization.arrayToDataTable([
-            ['Month', 'Levels', 'Optimal'],
-            ['2004/05',  2500,      1600],
-            ['2005/06',  1800,      1600],
-            ['2006/07',  3050,      1600],
-            ['2007/08',  3300,      1600],
-            ['2008/09',  4000,      1600]
-          ]);
+          var data = google.visualization.arrayToDataTable($graphData);
 
           var options = {
             hAxis: {title: 'Year'},
