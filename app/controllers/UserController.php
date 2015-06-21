@@ -104,7 +104,7 @@ class UserController extends BaseController {
 		$user->save();
 		//$profile->save();
 
-		return Redirect::to('user/{uid}/edit')->with('success','User edited successfully!');
+		return Redirect::to('user/' . $user_id . '/edit')->with('success','User edited successfully!');
 	}
 
 	public function create()
