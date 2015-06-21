@@ -115,7 +115,6 @@ class UserController extends BaseController {
 	public function store()
 	{	
 		$rules = array(
-			'email' => 'required|email|unique:users',
 			'username' => 'required|min:3|max:30|unique:users',
 			'password' => 'required|min:3'
 			);
@@ -124,8 +123,8 @@ class UserController extends BaseController {
 		if ($validation->fails())
 			return Redirect::to('user/create')->withErrors($validation->messages());
 
-		$creator = Auth::user()->id;
-		$creatorIP = Request::ip();
+//		$creator = Auth::user()->id;
+//		$creatorIP = Request::ip();
 
 		$user = new User();
 		$user->username = Input::get('username');
