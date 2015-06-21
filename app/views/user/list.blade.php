@@ -33,7 +33,7 @@
 					<td>{{ $user->uid }}</td>
 					<td>{{ $user->username }}</td>
 					<td>
-						{{ HTML::link('user/' . $user->id . '/edit/','Edit', array('class' => 'btn btn-xs btn-warning')) }}
+						{{ HTML::link('user/' . $user->uid . '/edit/','Edit', array('class' => 'btn btn-xs btn-warning')) }}
 						{{ Form::open(array('route' => array('user.destroy', $user->uid), 'method' => 'delete')) }}
 							<button type="submit" class="btn btn-xs btn-danger">Delete</button>
 						{{ Form::close() }}
