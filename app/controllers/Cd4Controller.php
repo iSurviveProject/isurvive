@@ -10,15 +10,21 @@ class Cd4Controller extends BaseController {
 		return View::make('cd4.show');
 	}
 
-	public function create(){
-		return "Hello World";
-	}
-
 	public function store(){
-		return "Hello World";
-	}
-	public function edit(){
-		return "Hello World";
+		$rules = array(
+			'level' => 'required',
+			'date' => 'required'
+			);
+
+		$validation = Validator::make(Input::all(), $rules);
+		if ($validation->fails())
+			return Redirect::to('cd4')->withErrors($validation->messages());
+
+
+		$cd4 = new Cd4();
+		$cd4->level = Input::get('level');
+		$cd4->date = Input::get('date');
+		$cd4->save();
 	}
 	public function update(){
 		return "Hello World";
