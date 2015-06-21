@@ -6,7 +6,7 @@ class BaseController extends Controller {
 		$this->beforeFilter('auth', array('except' => 'showLogin'));
 	}
 
-	public function index(){
+	public function auth(){
 		if( ! Auth::check() ) {
 			return Redirect::to('login');
 		}

@@ -13,7 +13,7 @@
 
 Route::get('/', function()
 {
-	return View::make('dashboard');
+	return View::make('dashboard', array('before' => 'auth', 'uses' => 'BaseController@auth'));
 });
 
 //Route::model('user', 'User');
