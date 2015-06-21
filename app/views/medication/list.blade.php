@@ -31,7 +31,7 @@
                         <tr>
                             <td>{{ $meds->name }}</td>
                             <td>{{ $meds->dosage }} {{ $meds->dosage_unit }}</td>
-                            <td>{{ HTML::link('user/edit/'.$meds->uid,'Edit', array('class' => 'btn btn-xs btn-warning')) }} {{ HTML::link('user/delete/'.$meds->uid, 'Delete', array('class' => 'btn btn-xs btn-danger')) }}</td>
+                            <td>{{ HTML::link('medication/edit/'.$meds->uid,'Edit', array('class' => 'btn btn-xs btn-warning')) }} {{ HTML::link('medication/delete/'.$meds->uid, 'Delete', array('class' => 'btn btn-xs btn-danger')) }}</td>
                         </tr>
                     @endforeach
                     </tbody>
