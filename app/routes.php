@@ -13,7 +13,7 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	return View::make('dashboard');
 });
 
 //Route::model('user', 'User');
@@ -24,5 +24,3 @@ Route::get('profile/{user}', function(User $user){
 Route::resource('medication', 'MedicationController');
 Route::resource('cd4', 'Cd4Controller');
 Route::resource('user', 'UserController');
-# Log viewing
-Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
