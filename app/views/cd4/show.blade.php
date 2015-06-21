@@ -26,6 +26,8 @@
         </div>
     	{{ Form::close() }}
 
+        <hr />
+        <h3>Log History</h3>
         <table class="table table-striped">
             <thead>
             <tr>
