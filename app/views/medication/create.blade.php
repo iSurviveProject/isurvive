@@ -66,6 +66,7 @@
 @endsection
 @section('footer-scripts')
     <script src="/js/bootstrap3-typeahead.js"></script>
+    <script src="/js/bloodhound.js"></script>
     <script type="text/javascript">
         var $input = $('.typeahead.med-name');
 
