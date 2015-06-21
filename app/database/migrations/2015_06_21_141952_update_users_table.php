@@ -12,7 +12,10 @@ class UpdateUsersTable extends Migration {
 	 */
 	public function up()
 	{
-		//
+		Schema::table('users', function ($table) {
+			$table->unique('username');
+			$table->rememberToken();
+		});
 	}
 
 	/**
