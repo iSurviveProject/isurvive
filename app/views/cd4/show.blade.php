@@ -6,15 +6,15 @@
 <div class="panel panel-default">
     <div class="panel-heading">New Entry</div>
     <div class="panel-body">
-    	{{ Form::open(array('action' => 'Cd4Controller@store')) }}
+    	{{ Form::open(array('action' => 'Cd4Controller@store', 'class' => 'form-inline')) }}
 		<div class="form-group">
             {{ Form::label('level', 'Level') }}
             <div class="controls">
-                {{ Form::text('level') }}
+                {{ Form::text('level', array('placeholder' => '10000')) }}
             </div>
         </div>
         {{ Form::submit('Save', array('class' => 'btn btn-primary')) }}
     	{{ Form::close() }}
     </div>
 </div>
-
+@endsection
