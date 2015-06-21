@@ -14,7 +14,7 @@ class UserController extends BaseController {
 			return Redirect::to('user')
 				->withErrors(new MessageBag(array('User ID not provided')));
 
-		$user = User::find($user_id);
+		$user = User::where('uid', $user_id);
 
 		if (empty($user))
 			return Redirect::to('user')
@@ -33,7 +33,7 @@ class UserController extends BaseController {
 //			return Redirect::to('dashboard')
 //				->with('permission','You do not have permission to access this area.');
 
-		$user = User::find($user_id);
+		$user = User::where('uid', $user_id);
 
 		if (empty($user))
 			return Redirect::to('user')
@@ -167,15 +167,15 @@ class UserController extends BaseController {
 			return Redirect::to('user')
 				->withErrors(new MessageBag(array('User ID not provided')));
 
-		$user = User::find($user_id);
+		$user = User::where('uid', $user_id);
 		if (empty($user))
 			return Redirect::to('user')
 				->withErrors(new MessageBag(array('User not found')));
 
-		$user->permission()->delete();
+		//$user->permission()->delete();
 		$user->delete();
 
-		return Redirect::to('user/list')->with('success','User deleted!');
+		return Redirect::to('user/')->with('success','User deleted!');
 	}
 
 	public function show(){}

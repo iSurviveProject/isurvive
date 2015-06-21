@@ -5,7 +5,7 @@
 </div>
 <div class="panel panel-default">
     <div class="panel-heading">
-    <strong>Edit User:</strong> {{ $user->email }} <span style="float: right;"><i class="fa fa-bullhorn fa-1"></i> <strong>Last Updated By:</strong> {{ empty($user->updated_by_user_id) ? "N/A" : User::find($user->updated_by_user_id)->username }} - <em>{{ empty($user->updated_by_ip) ? "N/A" : $user->updated_by_ip }}</em></span>
+    <strong>Edit User:</strong> {{ $user->username }}
     </div>
     <div class="panel-body">
         @if ($errors->all())
@@ -24,10 +24,6 @@
         {{ Form::hidden("edit-user", 1) }}
         <div class="row">
             <div class="col-md-6">
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="text" class="form-control" name="email" id="email" value="{{ $user->email }}">
-                </div>
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" class="form-control" name="username" id="username" value="{{ $user->username }}">
