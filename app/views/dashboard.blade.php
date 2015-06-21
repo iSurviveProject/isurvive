@@ -6,8 +6,7 @@
     <p>
     	<div id="cd4-level-graph"></div>
     	<script type="text/javascript">
-    		jQuery(window).ready( function(){
-    			Morris.Line({
+    		Morris.Line({
 				  element: 'cd4-level-grap',
 				  data: [
 				    { y: '2006', a: 100},
@@ -22,7 +21,6 @@
 				  ykeys: ['a'],
 				  labels: ['Series A']
 				});
-    		});
     	</script>
     </p>
     <p><a href="/cd4" class="btn btn-primary btn-large">More Details</a></p>
