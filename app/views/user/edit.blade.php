@@ -28,14 +28,6 @@
 					<label for="username">Username</label>
 					<input type="text" class="form-control" name="username" id="username" value="{{ $user->username }}">
 				</div>
-				<div class="form-group">
-					<label for="first_name">First Name</label>
-					<input type="text" class="form-control" name="first_name" id="username" value="{{ $user->first_name }}">
-				</div>
-				<div class="form-group">
-					<label for="last_name">Last Name</label>
-					<input type="text" class="form-control" name="last_name" id="username" value="{{ $user->last_name }}">
-				</div>
 				<hr>
 				<p>If you would like to change this accounts password you may include new passwords below. This is not required to edit an account</p>
 				<div class="form-group">
