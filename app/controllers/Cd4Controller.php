@@ -11,7 +11,7 @@ class Cd4Controller extends BaseController {
 	}
 
 	public function store(){
-		
+		var_dump(date('Y-m-d H:i:s', Input::get('date'));
 		$cd4 = new Cd4();
 		$cd4->level = Input::get('level');
 
