@@ -34,7 +34,7 @@
 					<td>{{ $user->username }}</td>
 					<td>
 						{{ HTML::link('user/edit/'.$user->id,'Edit', array('class' => 'btn btn-xs btn-warning')) }}
-						{{ Form::open(array('route' => array('user.index', $user->id), 'method' => 'delete')) }}
+						{{ Form::open(array('route' => array('user.destroy', $user->uid), 'method' => 'delete')) }}
 							<button type="submit" class="btn btn-xs btn-danger">Delete</button>
 						{{ Form::close() }}
 					</td>
