@@ -1,5 +1,14 @@
 (function($, undefined){
-$(window).ready( function(){
+$(document).ready( function(){
+
+	$('.datepicker').datepicker({
+		format: "mm/dd/yyyy",
+		todayBtn: true,
+		todayHighlight: true
+	});
+});
+
+$(window).load( function(){
 	if( $('#cd4-level-graph').length > 0 ){
 		Morris.Line({
 		  element: 'cd4-level-graph',
@@ -17,11 +26,5 @@ $(window).ready( function(){
 		  labels: ['Series A']
 		});
 	}
-
-	$('.datepicker').datepicker({
-		format: "mm/dd/yyyy",
-		todayBtn: true,
-		todayHighlight: true
-	});
 });
 }(window.jQuery))
