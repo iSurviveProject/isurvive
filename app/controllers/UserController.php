@@ -36,14 +36,14 @@ class UserController extends BaseController {
 //				->with('permission','You do not have permission to access this area.');
 
 		$user = User::find($user_id);
+		$profile = Profile::where('uid', $user_id);
 
 		if (empty($user))
 			return Redirect::to('user')
 				->withErrors(new MessageBag(array('User not found')));
 
 		$rules = array(
-				'email' => 'required|email|unique:users,email,' . $user_id,
-				'username' => 'required|min:3|max:30|unique:users,username,' . $user_id
+				//'username' => 'required|min:3|max:30|unique:users,username,' . $user_id
 				);
 
 		if (Input::get('password1'))
@@ -54,12 +54,13 @@ class UserController extends BaseController {
 		if ($validation->fails())
 			return Redirect::to('user/edit/'. $user_id)->withErrors($validation->messages());
 
-		$user->email = Input::get('email');
 		$user->username = Input::get('username');
 		if (Input::get('password1'))
 		{
 			$user->password = Hash::make(Input::get('password1'));
 		}
+		$profile->first_name = Input::get('first_name');
+		$profile->last_name = Input::get('last_name');
 
 		/* Update User Permissions */
 //		if (Auth::user()->permission->solder_full || Auth::user()->permission->solder_users)
