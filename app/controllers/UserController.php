@@ -8,58 +8,58 @@ class UserController extends BaseController {
 		return View::make('user.list')->with('users', $users);
 	}
 
-//	public function getEdit($user_id = null)
-//	{
-//		if (empty($user_id))
-//			return Redirect::to('user/list')
-//				->withErrors(new MessageBag(array('User ID not provided')));
-//
-//		$user = User::find($user_id);
-//
-//		if (empty($user))
-//			return Redirect::to('user/list')
-//				->withErrors(new MessageBag(array('User not found')));
-//
-//		return View::make('user.edit')->with('user', $user);
-//	}
-//
-//	public function postEdit($user_id = null)
-//	{
-//		if (empty($user_id))
-//			return Redirect::to('user/list')
-//				->withErrors(new MessageBag(array('User ID not provided')));
-//
+	public function edit($user_id = null)
+	{
+		if (empty($user_id))
+			return Redirect::to('user')
+				->withErrors(new MessageBag(array('User ID not provided')));
+
+		$user = User::find($user_id);
+
+		if (empty($user))
+			return Redirect::to('user')
+				->withErrors(new MessageBag(array('User not found')));
+
+		return View::make('user.edit')->with('user', $user);
+	}
+
+	public function update($user_id = null)
+	{
+		if (empty($user_id))
+			return Redirect::to('user')
+				->withErrors(new MessageBag(array('User ID not provided')));
+
 //		if (!Auth::user()->permission->solder_full && !Auth::user()->permission->solder_users && $user_id != Auth::user()->id)
 //			return Redirect::to('dashboard')
 //				->with('permission','You do not have permission to access this area.');
-//
-//		$user = User::find($user_id);
-//
-//		if (empty($user))
-//			return Redirect::to('user/list')
-//				->withErrors(new MessageBag(array('User not found')));
-//
-//		$rules = array(
-//				'email' => 'required|email|unique:users,email,' . $user_id,
-//				'username' => 'required|min:3|max:30|unique:users,username,' . $user_id
-//				);
-//
-//		if (Input::get('password1'))
-//			$rules['password1'] = "min:3|same:password2";
-//
-//		$validation = Validator::make(Input::all(), $rules);
-//
-//		if ($validation->fails())
-//			return Redirect::to('user/edit/'. $user_id)->withErrors($validation->messages());
-//
-//		$user->email = Input::get('email');
-//		$user->username = Input::get('username');
-//		if (Input::get('password1'))
-//		{
-//			$user->password = Hash::make(Input::get('password1'));
-//		}
-//
-//		/* Update User Permissions */
+
+		$user = User::find($user_id);
+
+		if (empty($user))
+			return Redirect::to('user')
+				->withErrors(new MessageBag(array('User not found')));
+
+		$rules = array(
+				'email' => 'required|email|unique:users,email,' . $user_id,
+				'username' => 'required|min:3|max:30|unique:users,username,' . $user_id
+				);
+
+		if (Input::get('password1'))
+			$rules['password1'] = "min:3|same:password2";
+
+		$validation = Validator::make(Input::all(), $rules);
+
+		if ($validation->fails())
+			return Redirect::to('user/edit/'. $user_id)->withErrors($validation->messages());
+
+		$user->email = Input::get('email');
+		$user->username = Input::get('username');
+		if (Input::get('password1'))
+		{
+			$user->password = Hash::make(Input::get('password1'));
+		}
+
+		/* Update User Permissions */
 //		if (Auth::user()->permission->solder_full || Auth::user()->permission->solder_users)
 //		{
 //			$perm = $user->permission;
@@ -93,50 +93,45 @@ class UserController extends BaseController {
 //
 //			$perm->save();
 //		}
-//
-//		//Security logging
-//		$user->updated_by_user_id = Auth::user()->id;
-//		$user->updated_by_ip = Request::ip();
-//
-//		$user->save();
-//
-//		return Redirect::to('user/list')->with('success','User edited successfully!');
-//	}
-//
-//	public function getCreate()
-//	{
-//		if (!Auth::user()->permission->solder_full && !Auth::user()->permission->solder_users)
-//			return Redirect::to('dashboard')
-//				->with('permission','You do not have permission to access this area.');
-//
-//		return View::make('user.create');
-//	}
-//
-//	public function postCreate()
-//	{	
-//		$rules = array(
-//			'email' => 'required|email|unique:users',
-//			'username' => 'required|min:3|max:30|unique:users',
-//			'password' => 'required|min:3'
-//			);
-//
-//		$validation = Validator::make(Input::all(), $rules);
-//		if ($validation->fails())
-//			return Redirect::to('user/create')->withErrors($validation->messages());
-//
-//		$creator = Auth::user()->id;
-//		$creatorIP = Request::ip();
-//
-//		$user = new User();
-//		$user->email = Input::get('email');
-//		$user->username = Input::get('username');
-//		$user->password = Hash::make(Input::get('password'));
-//		$user->created_ip = $creatorIP;
-//		$user->created_by_user_id = $creator;
-//		$user->updated_by_ip = $creatorIP;
-//		$user->updated_by_user_id = $creator;
-//		$user->save();
-//
+
+		//Security logging
+		$user->updated_by_user_id = Auth::user()->id;
+		$user->updated_by_ip = Request::ip();
+
+		$user->save();
+
+		return Redirect::to('user')->with('success','User edited successfully!');
+	}
+
+	public function create()
+	{
+		if (!Auth::user()->permission->solder_full && !Auth::user()->permission->solder_users)
+			return Redirect::to('dashboard')
+				->with('permission','You do not have permission to access this area.');
+
+		return View::make('user.create');
+	}
+
+	public function store()
+	{	
+		$rules = array(
+			'email' => 'required|email|unique:users',
+			'username' => 'required|min:3|max:30|unique:users',
+			'password' => 'required|min:3'
+			);
+
+		$validation = Validator::make(Input::all(), $rules);
+		if ($validation->fails())
+			return Redirect::to('user/create')->withErrors($validation->messages());
+
+		$creator = Auth::user()->id;
+		$creatorIP = Request::ip();
+
+		$user = new User();
+		$user->username = Input::get('username');
+		$user->password = Hash::make(Input::get('password'));
+		$user->save();
+
 //		$perm = new UserPermission();
 //		$perm->user_id = $user->id;
 //
@@ -162,10 +157,10 @@ class UserController extends BaseController {
 //			$perm->modpacks = null;
 //
 //		$perm->save();
-//
-//		return Redirect::to('user/edit/'.$user->id)->with('success','User created!');
-//	}
-//
+
+		return Redirect::to('user/edit/'.$user->id)->with('success','User created!');
+	}
+
 //	public function getDelete($user_id = null)
 //	{
 //		if (!Auth::user()->permission->solder_full && !Auth::user()->permission->solder_users)
@@ -183,27 +178,23 @@ class UserController extends BaseController {
 //
 //		return View::make('user.delete')->with(array('user' => $user));
 //	}
-//
-//	public function postDelete($user_id = null)
-//	{
-//		if (empty($user_id) || $user_id == 1)
-//			return Redirect::to('user/list')
-//				->withErrors(new MessageBag(array('User ID not provided')));
-//
-//		$user = User::find($user_id);
-//		if (empty($user))
-//			return Redirect::to('user/list')
-//				->withErrors(new MessageBag(array('User not found')));
-//
-//		$user->permission()->delete();
-//		$user->delete();
-//
-//		return Redirect::to('user/list')->with('success','User deleted!');
-//	}
+
+	public function destroy($user_id = null)
+	{
+		if (empty($user_id) || $user_id == 1)
+			return Redirect::to('user')
+				->withErrors(new MessageBag(array('User ID not provided')));
+
+		$user = User::find($user_id);
+		if (empty($user))
+			return Redirect::to('user')
+				->withErrors(new MessageBag(array('User not found')));
+
+		$user->permission()->delete();
+		$user->delete();
+
+		return Redirect::to('user/list')->with('success','User deleted!');
+	}
 
 	public function show(){}
-	public function create(){}
-	public function store(){}
-	public function edit(){}
-	public function update(){}
 }

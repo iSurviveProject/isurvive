@@ -1,7 +1,4 @@
-@extends('layouts/master')
-@section('title')
-    <title>Delete User - TechnicSolder</title>
-@stop
+@extends('app')
 @section('content')
 <div class="page-header">
 <h1>User Management</h1>
@@ -14,7 +11,7 @@
     	<p>This will immediately remove the user from Solder.<br>Are you sure you want to remove <strong>{{ $user->username }}</strong>?</p>
 		<form method="post" action="{{ URL::current() }}">
 			<button type="submit" class="btn btn-danger">Confirm Deletion</button> 
-			{{ HTML::link('user/list/', 'Go Back', array('class' => 'btn btn-primary')) }}
+			{{ HTML::link('user', 'Go Back', array('class' => 'btn btn-primary')) }}
 		</form>
 	</div>
 </div>
