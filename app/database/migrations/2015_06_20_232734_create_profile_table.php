@@ -13,7 +13,8 @@ class CreateProfileTable extends Migration {
 	public function up()
 	{
 		Schema::create('profiles', function($table) {
-			$table->increments('uid');
+			$table->increments('id');
+			$table->integer('uid');
 			$table->string('first_name');
 			$table->string('last_name');
 			$table->date('dob');
