@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="panel panel-default">
-    <div class="panel-heading">New Entry</div>
+    <div class="panel-heading">Login</div>
     <div class="panel-body">
         {{ Form::open(array('url' => 'login', 'class' => 'form-horizontal')) }}
         <div class="form-group">
