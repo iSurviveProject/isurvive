@@ -5,7 +5,6 @@ $(document).ready( function(){
 		format: "mm/dd/yyyy",
 		todayBtn: true,
 		todayHighlight: true,
-		forceParse: true
 	});
 });
 
