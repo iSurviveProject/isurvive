@@ -57,7 +57,7 @@ class MedicationController extends BaseController {
 
             // redirect
             Session::flash('message', 'Successfully updated Medication!');
-            return Redirect::to('Medication');
+            return Redirect::to('medication');
         //}
     }
 
