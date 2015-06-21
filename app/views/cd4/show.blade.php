@@ -8,14 +8,12 @@
     <div class="panel-body">
     	{{ Form::open(array('action' => 'Cd4Controller@store')) }}
 		<div class="form-group">
-            <label>Solderwide</label>
+            {{ Form::label('level', 'Level') }}
             <div class="controls">
-                <label>
-                	{{ Form::text('level') }}
-                </label>
+                {{ Form::text('level') }}
             </div>
         </div>
-        {{ Form::submit('Save')}}
+        {{ Form::submit('Save', array('class' => 'btn btn-primary')) }}
     	{{ Form::close() }}
     </div>
 </div>
