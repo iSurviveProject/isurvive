@@ -49,7 +49,7 @@ class MedicationController extends BaseController {
             $med->dosage_volume = intval(Input::get('dosage'));
             $med->dosage_unit   = Input::get('dosage_unit');
             $med->frequency     = Input::get('frequency');
-            $med->frequency_per = Input::get('frequency_per');
+            //$med->frequency_per = Input::get('frequency_per');
             $med->count         = intval(Input::get('count'));
             $med->ndc           = Input::get('ndc');
 	        $med->uid           = Auth::id();
