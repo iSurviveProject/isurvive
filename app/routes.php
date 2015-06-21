@@ -24,3 +24,5 @@ Route::get('profile/{user}', function(User $user){
 Route::resource('medication', 'MedicationController');
 Route::resource('cd4', 'Cd4Controller');
 Route::resource('user', 'UserController');
+# Laravel Logs
+Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');

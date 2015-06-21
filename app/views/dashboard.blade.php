@@ -3,9 +3,7 @@
 <!-- Jumbotron Header -->
 <header class="jumbotron hero-spacer">
     <h1>CD4 Levels</h1>
-    <p>
-    	<div id="cd4-level-graph"></div>
-    </p>
+    <div id="cd4-level-graph"></div>
     <p><a href="/cd4" class="btn btn-primary btn-large">More Details</a></p>
 </header>
 
