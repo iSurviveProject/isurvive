@@ -7,11 +7,13 @@ class Cd4Controller extends BaseController {
 	}
 
 	public function show(){
-		return "Hello World";
+		return View:make('cd4.show');
 	}
+
 	public function create(){
 		return "Hello World";
 	}
+
 	public function store(){
 		return "Hello World";
 	}
