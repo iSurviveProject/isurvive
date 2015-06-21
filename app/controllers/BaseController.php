@@ -13,6 +13,10 @@ class BaseController extends Controller {
 
 	}
 
+	public function dashboard() {
+		return View::make('dashboard');
+	}
+	
 	/**
 	 * Setup the layout used by the controller.
 	 *
