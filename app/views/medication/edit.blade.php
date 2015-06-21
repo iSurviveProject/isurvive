@@ -23,7 +23,7 @@
 
         <div class="form-group">
             {{ Form::label('dosage_size', 'Dosage Size') }}
-            {{ Form::select('dosage_unit', array('mL' => 'mL', 'oz' => 'oz', 'mG' => 'mg'), Input::old('dosage_unit'), array('class' => 'form-control')) }}
+            {{ Form::select('dosage_unit', array('mL' => 'mL', 'oz' => 'oz', 'mg' => 'mg'), Input::old('dosage_unit'), array('class' => 'form-control')) }}
         </div>
 
         <div class="form-group">

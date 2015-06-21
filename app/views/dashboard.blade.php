@@ -29,12 +29,11 @@
 </div>
 <!-- /.row -->
 
-@foreach($meds)
+@foreach($meds as $med)
     <div class="col-md-3 col-sm-6 hero-feature">
         <div class="thumbnail">
             <div class="caption">
-                <h3>{{ $meds->name }}</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <h3>{{ $med->name }}</h3>
             </div>
         </div>
     </div>

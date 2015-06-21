@@ -30,7 +30,7 @@
                     @foreach ($medications as $meds)
                         <tr>
                             <td>{{ $meds->name }}</td>
-                            <td>{{ $meds->dosage }} {{ $meds->dosage_unit }}</td>
+                            <td>{{ $meds->dosage_volume }} {{ $meds->dosage_unit }}</td>
                             <td>{{ HTML::link('medication/edit/'.$meds->id,'Edit', array('class' => 'btn btn-xs btn-warning')) }} {{ HTML::link('medication/delete/'.$meds->id, 'Delete', array('class' => 'btn btn-xs btn-danger')) }}</td>
                         </tr>
                     @endforeach
