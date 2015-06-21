@@ -8,9 +8,9 @@
     <div class="panel-body">
     	{{ Form::open(array('action' => 'Cd4Controller@store', 'class' => 'form-inline')) }}
 		<div class="form-group">
-            {{ Form::label('level', 'Level') }}
             <div class="controls">
-                {{ Form::text('level') }}
+                {{ Form::label('level', 'New Level') }}
+                {{ Form::text('level', '10000', array('class' => 'form-control')) }}
             </div>
         </div>
         {{ Form::submit('Save', array('class' => 'btn btn-primary')) }}
