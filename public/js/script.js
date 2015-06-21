@@ -1,6 +1,6 @@
 jQuery(window).ready( function(){
 	Morris.Line({
-	  element: 'cd4-level-grap',
+	  element: 'cd4-level-graph',
 	  data: [
 	    { y: '2006', a: 100},
 	    { y: '2007', a: 75},
