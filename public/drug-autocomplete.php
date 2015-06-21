@@ -15,12 +15,12 @@ if ( ! $result = $db->query( $the_query ) ) {
 }
 
 $return_arr = array();
-while ( $row = mysqli_fetch_assoc( $result, MYSQLI_ASSOC ) ) {
+while ( $row = $result->fetch_assoc() ) {
 	$row_array['pid'] = $row['PID'];
 	$row_array['name'] = ( ( strpos( $row['PROPRIETARYNAME'], $safe_str ) ) ? $row_array['name'] = $row['PROPRIETARYNAME'] : $row['NONPROPRIETARYNAME'] );
 	$row_array['ndc'] = $row['PRODUCTNDC'];
 
-	array_push( $return_arr,$row_array );
+	array_push( $return_arr, $row_array );
 }
 
 $db->close();
