@@ -25,7 +25,7 @@
             vAxis: {title: 'Levels', minValue: 0, maxVlaue: 10000}
           };
 
-          var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+          var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
           chart.draw(data, options);
         }
     </script>
