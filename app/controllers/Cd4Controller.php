@@ -3,7 +3,8 @@
 class Cd4Controller extends BaseController {
 
 	public function index(){
-		return View::make('cd4.show');
+        $cd4 = Cd4::all();
+		return View::make('cd4.show')->with('cd4', $cd4);
 	}
 
 	public function show(){
@@ -16,6 +17,8 @@ class Cd4Controller extends BaseController {
 		$date = date('Y-m-d H:i:s', strtotime( Input::get('date')));
 		$cd4->date = $date;
 		$cd4->save();
+
+        Redirect::to('cd4');
 	}
 
 }

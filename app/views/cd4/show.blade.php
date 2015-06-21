@@ -25,6 +25,21 @@
             </div>
         </div>
     	{{ Form::close() }}
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Level</th>
+            </tr>
+            </thead>
+            <tbody>
+                @foreach($cd4 as $row)
+                    <td>{{ date('m/d/Y', $row->date) }}</td>
+                    <td>{{ $row->level }}</td>
+                @endforeach
+            </tbody>
+        </table>
     </div>
 </div>
 @endsection
