@@ -73,7 +73,9 @@
     <div class="container">
         @if(Session::has('success'))
             <div class="alert-box success">
-                <p class="bg-success">{{ Session::get('success') }}</p>
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    {{ Session::get('success') }}
+                </div>
             </div>
         @endif
         @yield('content')
@@ -88,6 +90,7 @@
     <script src="/bootstrap/js/bootstrap.min.js"></script>
     <script src="/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 
+    @yield('footer-scripts')
     <script src="/js/script.js" type="text/javascript"></script>
 
 </body>
