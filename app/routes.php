@@ -20,7 +20,7 @@ Route::get('/', array('uses' => 'BaseController@dashboard'));
 //Route::model('user', 'User');
 Route::model('setting', 'Setting');
 Route::get('profile', function(){
-	return UserController::edit(Auth::id());
+	return user.edit(Auth::id());
 });
 Route::resource('medication', 'MedicationController');
 Route::resource('cd4', 'Cd4Controller');
