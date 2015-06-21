@@ -161,27 +161,27 @@ class UserController extends BaseController {
 		//return Redirect::to('user/edit/'.$user->id)->with('success','User created!');
 	}
 
-//	public function getDelete($user_id = null)
-//	{
+	public function getDelete($user_id = null)
+	{
 //		if (!Auth::user()->permission->solder_full && !Auth::user()->permission->solder_users)
 //			return Redirect::to('dashboard')
 //				->with('permission','You do not have permission to access this area.');
-//
-//		if (empty($user_id) || $user_id == 1)
-//			return Redirect::to('user/list')
-//				->withErrors(new MessageBag(array('User ID not provided')));
-//
-//		$user = User::find($user_id);
-//		if (empty($user))
-//			return Redirect::to('user/list')
-//				->withErrors(new MessageBag(array('User not found')));
-//
-//		return View::make('user.delete')->with(array('user' => $user));
-//	}
+
+		if (empty($user_id) || $user_id == 1)
+			return Redirect::to('user/')
+				->withErrors(new MessageBag(array('User ID not provided')));
+
+		$user = User::find($user_id);
+		if (empty($user))
+			return Redirect::to('user/')
+				->withErrors(new MessageBag(array('User not found')));
+
+		return View::make('user.delete')->with(array('user' => $user));
+	}
 
 	public function destroy($user_id = null)
 	{
-		if (empty($user_id) || $user_id == 1)
+		if (empty($user_id))
 			return Redirect::to('user')
 				->withErrors(new MessageBag(array('User ID not provided')));
 

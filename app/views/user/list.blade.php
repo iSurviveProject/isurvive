@@ -30,7 +30,7 @@
 			<tbody>
 			@foreach ($users as $user)
 				<tr>
-					<td>{{ $user->id }}</td>
+					<td>{{ $user->uid }}</td>
 					<td>{{ $user->username }}</td>
 					<td>{{ HTML::link('user/edit/'.$user->id,'Edit', array('class' => 'btn btn-xs btn-warning')) }} {{ HTML::link('user/delete/'.$user->id, 'Delete', array('class' => 'btn btn-xs btn-danger')) }}</td>
 				</tr>
