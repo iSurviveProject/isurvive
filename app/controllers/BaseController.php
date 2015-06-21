@@ -3,7 +3,7 @@
 class BaseController extends Controller {
 	public function __construct()
 	{
-		$this->beforeFilter('auth', array('except' => 'showLogin'));
+		$this->beforeFilter('auth', array('except' => array('showLogin', 'doLogin', 'doLogout')));
 	}
 
 	public function auth(){
