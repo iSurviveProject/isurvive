@@ -20,7 +20,7 @@
 				{{ Session::get('success') }}
 			</div>
 		@endif
-		{{ Form::open(array('action' => 'user/' . $user->uid)) }}
+		{{ Form::open(array('action' => '/user/' . $user->uid)) }}
 		{{ Form::hidden("edit-user", 1) }}
 		<div class="row">
 			<div class="col-md-6">
